@@ -20,6 +20,7 @@
 		2522EF6A2A64E115005C62CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2522EF692A64E115005C62CA /* FirebaseFirestore */; };
 		2522EF6C2A64E115005C62CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2522EF6B2A64E115005C62CA /* FirebaseFirestoreSwift */; };
 		2522EF6E2A64E1CC005C62CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */; };
+		25260EBB2A65FA1300D3EB05 /* 🎩HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EBA2A65FA1300D3EB05 /* 🎩HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		2522EF622A645E82005C62CA /* 👮‍♂️LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👮‍♂️LoginView.swift"; sourceTree = "<group>"; };
 		2522EF642A646172005C62CA /* 📝RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📝RegisterView.swift"; sourceTree = "<group>"; };
 		2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25260EBA2A65FA1300D3EB05 /* 🎩HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎩HeaderView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +109,14 @@
 		2522EF362A645B8A005C62CA /* todo2 */ = {
 			isa = PBXGroup;
 			children = (
-				2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */,
 				2522EF372A645B8A005C62CA /* todo2App.swift */,
 				2522EF392A645B8A005C62CA /* 🏎️💨💨StartHereView.swift */,
 				2522EF622A645E82005C62CA /* 👮‍♂️LoginView.swift */,
+				25260EBA2A65FA1300D3EB05 /* 🎩HeaderView.swift */,
 				2522EF642A646172005C62CA /* 📝RegisterView.swift */,
 				2522EF3B2A645B8B005C62CA /* Assets.xcassets */,
 				2522EF3D2A645B8B005C62CA /* todo2.entitlements */,
+				2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */,
 				2522EF3E2A645B8B005C62CA /* Preview Content */,
 			);
 			path = todo2;
@@ -285,6 +288,7 @@
 			files = (
 				2522EF632A645E82005C62CA /* 👮‍♂️LoginView.swift in Sources */,
 				2522EF652A646172005C62CA /* 📝RegisterView.swift in Sources */,
+				25260EBB2A65FA1300D3EB05 /* 🎩HeaderView.swift in Sources */,
 				2522EF3A2A645B8A005C62CA /* 🏎️💨💨StartHereView.swift in Sources */,
 				2522EF382A645B8A005C62CA /* todo2App.swift in Sources */,
 			);
@@ -449,10 +453,10 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -461,7 +465,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = test.todo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -485,10 +491,10 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -497,7 +503,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = test.todo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
