@@ -33,11 +33,7 @@ class MainViewModel: ObservableObject {
 struct ContentView: View {
     @StateObject var viewModel = MainViewModel()
     var body: some View {
-        
-//        if viewModel.signedIn, !viewModel.userId.isEmpty {
-        if false {
-            💃SignedInView
-        } else {
+        NavigationView {
             LoginView()
         }
     }
@@ -45,7 +41,7 @@ struct ContentView: View {
 
 // MARK: 🧩 Bits 🧩
 @ViewBuilder
-var 💃SignedInView: some View {
+var SignedInView: some View {
     Text("Hello world")
 }
 

@@ -19,7 +19,7 @@
 		2522EF682A64E115005C62CA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2522EF672A64E115005C62CA /* FirebaseAuth */; };
 		2522EF6A2A64E115005C62CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2522EF692A64E115005C62CA /* FirebaseFirestore */; };
 		2522EF6C2A64E115005C62CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2522EF6B2A64E115005C62CA /* FirebaseFirestoreSwift */; };
-		2522EF6E2A64E1CC005C62CA /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 2522EF6D2A64E1CB005C62CA /* GoogleService-Info (1).plist */; };
+		2522EF6E2A64E1CC005C62CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,7 @@
 		2522EF552A645B8C005C62CA /* todo2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2522EF622A645E82005C62CA /* 👮‍♂️LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👮‍♂️LoginView.swift"; sourceTree = "<group>"; };
 		2522EF642A646172005C62CA /* 📝RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📝RegisterView.swift"; sourceTree = "<group>"; };
-		2522EF6D2A64E1CB005C62CA /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
+		2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 		2522EF362A645B8A005C62CA /* todo2 */ = {
 			isa = PBXGroup;
 			children = (
-				2522EF6D2A64E1CB005C62CA /* GoogleService-Info (1).plist */,
+				2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */,
 				2522EF372A645B8A005C62CA /* todo2App.swift */,
 				2522EF392A645B8A005C62CA /* 🏎️💨💨StartHereView.swift */,
 				2522EF622A645E82005C62CA /* 👮‍♂️LoginView.swift */,
@@ -257,7 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2522EF402A645B8B005C62CA /* Preview Assets.xcassets in Resources */,
-				2522EF6E2A64E1CC005C62CA /* GoogleService-Info (1).plist in Resources */,
+				2522EF6E2A64E1CC005C62CA /* GoogleService-Info.plist in Resources */,
 				2522EF3C2A645B8B005C62CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

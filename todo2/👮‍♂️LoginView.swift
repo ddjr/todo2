@@ -24,10 +24,19 @@ struct LoginView: View {
 
 // MARK: 🧩 Bits 🧩
 @ViewBuilder private var 🎩LoginHeader: some View {
-    VStack {
-        Text("Todo List")
-        Text("Get Things Done")
+    ZStack {
+        RoundedRectangle(cornerRadius: 0)
+            .foregroundColor(.pink)
+        VStack {
+            Text("Todo List")
+                .foregroundColor(.white)
+                .font(.title)
+            Text("Get Things Done")
+                .foregroundColor(.white)
+                .font(.title2)
+        }
     }
+    .frame(width: 100, height: 300)
 }
 
 @ViewBuilder private var 🥷LoginForm: some View {
