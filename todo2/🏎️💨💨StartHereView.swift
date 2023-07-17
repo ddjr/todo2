@@ -10,7 +10,9 @@ import FirebaseAuth
 import Firebase
 import Foundation
 
+// -------------------------------
 // MARK: ⚙️ Logic ⚙️
+// -------------------------------
 class MainViewModel: ObservableObject {
     @Published var currentUserId: String = ""
     private var handler: AuthStateDidChangeListenerHandle?
@@ -28,8 +30,9 @@ class MainViewModel: ObservableObject {
         return Auth.auth().currentUser != nil
     }
 }
-
+// -------------------------------
 // MARK: 👀 View 👀
+// -------------------------------
 struct ContentView: View {
     @StateObject var viewModel = MainViewModel()
     var body: some View {
@@ -38,14 +41,17 @@ struct ContentView: View {
         }
     }
 }
-
+// -------------------------------
 // MARK: 🧩 Bits 🧩
+// -------------------------------
 @ViewBuilder
 var SignedInView: some View {
     Text("Hello world")
 }
 
+// -------------------------------
 // MARK: 🎥 Preview 🎥
+// -------------------------------
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

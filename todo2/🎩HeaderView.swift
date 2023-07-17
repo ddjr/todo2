@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
-
+// -------------------------------
+// MARK: 👀 View 👀
+// -------------------------------
 struct HeaderView: View {
     let title: String
     let subtitle: String
@@ -27,11 +29,14 @@ struct HeaderView: View {
                     .font(.title2)
             }
         }
-        .frame(width: 600, height: 300)
-        .offset(y: -100)
+        .frame(width: 600, height: 370)
+        .offset(y: -150)
     }
 }
 
+// -------------------------------
+// MARK: 🎥 Preview 🎥
+// -------------------------------
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderView(title: "Todo list", subtitle: "Get Things Done", angle: -15.0, backgroundColor: .pink)

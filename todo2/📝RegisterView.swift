@@ -8,59 +8,62 @@
 import SwiftUI
 import Foundation
 
+// -------------------------------
 // MARK: ⚙️ Logic
-// TODO: register()
-
-// MARK: 👀 View
+// -------------------------------
+class RegisterViewModel: ObservableObject {
+    @Published var name: String = ""
+    @Published var email: String = ""
+    @Published var password: String = ""
+    
+    init() {}
+}
+// -------------------------------
+// MARK: 👀 View 👀
+// -------------------------------
 struct RegisterView: View {
+    @StateObject var viewModel = RegisterViewModel()
+    
     var body: some View {
         VStack {
-            🎩RegisterHeader
-            📝RegisterForm
+            // -------------------------------
+            // 🎩RegisterHeader
+            HeaderView(
+                title: "Register",
+                subtitle: "Start Orginizing Todos",
+                angle: -15.0,
+                backgroundColor: .orange
+            )
+            // -------------------------------
+            // 📝RegisterForm
+            Form {
+                TextField("First Name", text: $viewModel.name)
+                    .textFieldStyle(DefaultTextFieldStyle())
+                TextField("Email", text: $viewModel.email)
+                    .textFieldStyle(DefaultTextFieldStyle())
+                    .autocapitalization(.none)
+                    .autocorrectionDisabled()
+                SecureField("Password", text: $viewModel.password)
+                    .textFieldStyle(DefaultTextFieldStyle())
+                Button() {
+                    // TODO: 📝register()
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.green)
+                            .padding(.horizontal)
+                        Text("Create Account")
+                            .foregroundColor(.white)
+                    }
+                }
+            }
         }
     }
 }
 
-// MARK: 🧩 Bits
-@ViewBuilder private var 🎩RegisterHeader: some View {
-    ZStack {
-        RoundedRectangle(cornerRadius: 0)
-            .foregroundColor(.red)
-            .  rotationEffect(Angle(degrees: -15))
-            .offset(y: -100)
-        VStack {
-            Text("Register")
-                .foregroundColor(.blue)
-                .font(.title)
-                .bold()
-            Text("Signup Today")
-                .foregroundColor(.blue)
-                .font(.title2)
-                .bold()
-        }
-    }
-    .frame(width: 300, height: 400)
-}
-
-@ViewBuilder private var 📝RegisterForm: some View {
-    @State var name: String = ""
-    @State var email: String = ""
-    @State var password: String = ""
-
-    Form {
-        TextField("First Name", text: $name)
-            .textFieldStyle(DefaultTextFieldStyle())
-        TextField("Email", text: $email)
-            .textFieldStyle(DefaultTextFieldStyle())
-        SecureField("Password", text: $password)
-            .textFieldStyle(DefaultTextFieldStyle())
-        Button("Create Account") {
-            // TODO: register()
-        }
-        .background(.green)
-        
-    }
-}
+// -------------------------------
+// MARK: 🎥 Preview 🎥
+// -------------------------------
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
         RegisterView()

@@ -6,36 +6,40 @@
 //
 
 import SwiftUI
-
+// -------------------------------
 // MARK: ⚙️ Logic ⚙️
-// TODO: add login func
-
-
-
-
+// -------------------------------
+class LoginViewModel: ObservableObject {
+    @Published var email: String = ""
+    @Published var password: String = ""
+    
+    init() {}
+}
+// -------------------------------
 // MARK: 👀 View 👀
+// -------------------------------
 struct LoginView: View {
-    @State var email = ""
-    @State var password = ""
+    @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
         
         VStack {
+            // -------------------------------
             // 🎩LoginHeader
             HeaderView(
-                title: "Todo list",
+                title: "Todo List",
                 subtitle: "Get Things Done",
                 angle: 15.0,
                 backgroundColor: .pink
             )
-            
+            // -------------------------------
             // 🥷LoginForm
             Form {
-                TextField("Email Address", text: $email)
+                TextField("Email Address", text: $viewModel.email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocorrectionDisabled()
                     .autocorrectionDisabled()
-                SecureField("Password", text: $password)
+                SecureField("Password", text: $viewModel.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Button() {
                     // TODO: Add onClick
@@ -50,7 +54,7 @@ struct LoginView: View {
                     }
                 }
             }
-            
+            // -------------------------------
             // 👨‍💻CreateAccountLink
             VStack {
                 Text("New around here?")
@@ -63,8 +67,9 @@ struct LoginView: View {
         }
     }
 }
-
+// -------------------------------
 // MARK: 🧩 Bits 🧩
+// -------------------------------
 //@ViewBuilder private var 🎩LoginHeader: some View {
 //    ZStack {
 //        RoundedRectangle(cornerRadius: 0)
@@ -94,7 +99,9 @@ struct LoginView: View {
 //
 //}
 
+// -------------------------------
 // MARK: 🎥 Preview 🎥
+// -------------------------------
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
