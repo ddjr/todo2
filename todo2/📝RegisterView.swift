@@ -6,19 +6,17 @@
 //
 
 import SwiftUI
+import Foundation
+
 // MARK: ⚙️ Logic
 // TODO: register()
 
 // MARK: 👀 View
 struct RegisterView: View {
-    @State var name: String = ""
-    @State var email: String = ""
-    @State var password: String = ""
-    
     var body: some View {
         VStack {
-            🎩RegisterHeader()
-            📝RegisterForm()
+            🎩RegisterHeader
+            📝RegisterForm
         }
     }
 }
@@ -33,7 +31,7 @@ struct RegisterView: View {
         VStack {
             Text("Register")
                 .foregroundColor(.blue)
-                .font(title)
+                .font(.title)
                 .bold()
             Text("Signup Today")
                 .foregroundColor(.blue)
@@ -41,17 +39,21 @@ struct RegisterView: View {
                 .bold()
         }
     }
-    .frame(width: UIScreen.main.bounds.width * 3, height: 400)
+    .frame(width: 300, height: 400)
 }
 
 @ViewBuilder private var 📝RegisterForm: some View {
+    @State var name: String = ""
+    @State var email: String = ""
+    @State var password: String = ""
+
     Form {
         TextField("First Name", text: $name)
-            .textFieldStyle(DefaultTextFieldStyle)
+            .textFieldStyle(DefaultTextFieldStyle())
         TextField("Email", text: $email)
-            .textFieldStyle(DefaultTextFieldStyle)
+            .textFieldStyle(DefaultTextFieldStyle())
         SecureField("Password", text: $password)
-            .textFieldStyle(DefaultTextFieldStyle)
+            .textFieldStyle(DefaultTextFieldStyle())
         Button("Create Account") {
             // TODO: register()
         }

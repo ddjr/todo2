@@ -6,21 +6,25 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import Firebase
+import Foundation
 
 // MARK: ⚙️ Logic ⚙️
-class contentViewModel: ObservedObject {
-    @Published var userId: String = ""
+class MainViewModel: ObservableObject {
+    @Published var currentUserId: String = ""
     private var handler: AuthStateDidChangeListenerHandle?
     
     init() {
         let handler = Auth.auth().addStateDidChangeListener({ [weak self] _, user in
             DispatchQueue.main.async {
-                self?.userId = user?.uid ?? ""
+                self?.currentUserId = user?.uid ?? ""
             }
         })
+        print(handler)
     }
     
-    public var signedId: Bool {
+    public var isSignedIn: Bool {
         return Auth.auth().currentUser != nil
     }
 }
@@ -30,10 +34,11 @@ struct ContentView: View {
     @StateObject var viewModel = MainViewModel()
     var body: some View {
         
-        if viewModel.signedIn, !viewModel.userId.isEmpty {
-            💃SignedInView()
+//        if viewModel.signedIn, !viewModel.userId.isEmpty {
+        if false {
+            💃SignedInView
         } else {
-            👮‍♂️LoginView()
+            LoginView()
         }
     }
 }
@@ -41,11 +46,6 @@ struct ContentView: View {
 // MARK: 🧩 Bits 🧩
 @ViewBuilder
 var 💃SignedInView: some View {
-    Text("Hello world")
-}
-
-@ViewBuilder
-var 👮‍♂️LoginView: some View {
     Text("Hello world")
 }
 

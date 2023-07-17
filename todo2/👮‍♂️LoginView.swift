@@ -14,14 +14,11 @@ import SwiftUI
 
 
 // MARK: 👀 View 👀
-struct 👮‍♂️LoginView: View {
-    @State var email = ""
-    @State var password = ""
-
+struct LoginView: View {
     var body: some View {
-        🎩LoginHeader()
-        🥷LoginForm()
-        🙋‍♂️CreateAccountLink()
+        🎩LoginHeader
+        🥷LoginForm
+        👨‍💻CreateAccountLink
     }
 }
 
@@ -34,6 +31,8 @@ struct 👮‍♂️LoginView: View {
 }
 
 @ViewBuilder private var 🥷LoginForm: some View {
+    @State var email = ""
+    @State var password = ""
     Form {
         TextField("Email Address", text: $email)
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -48,7 +47,7 @@ struct 👮‍♂️LoginView: View {
     }
 }
 
-@ViewBuilder private var 🙋‍♂️CreateAccountLink: some View {
+@ViewBuilder private var 👨‍💻CreateAccountLink: some View {
     VStack {
         Text("New around here?")
         NavigationLink("Create An Account",
