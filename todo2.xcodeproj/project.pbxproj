@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2522EF382A645B8A005C62CA /* todo2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF372A645B8A005C62CA /* todo2App.swift */; };
-		2522EF3A2A645B8A005C62CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF392A645B8A005C62CA /* ContentView.swift */; };
+		2522EF3A2A645B8A005C62CA /* 🏎️💨💨StartHereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF392A645B8A005C62CA /* 🏎️💨💨StartHereView.swift */; };
 		2522EF3C2A645B8B005C62CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2522EF3B2A645B8B005C62CA /* Assets.xcassets */; };
 		2522EF402A645B8B005C62CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2522EF3F2A645B8B005C62CA /* Preview Assets.xcassets */; };
 		2522EF4A2A645B8C005C62CA /* todo2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF492A645B8C005C62CA /* todo2Tests.swift */; };
 		2522EF542A645B8C005C62CA /* todo2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF532A645B8C005C62CA /* todo2UITests.swift */; };
 		2522EF562A645B8C005C62CA /* todo2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF552A645B8C005C62CA /* todo2UITestsLaunchTests.swift */; };
+		2522EF632A645E82005C62CA /* 👮‍♂️LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF622A645E82005C62CA /* 👮‍♂️LoginView.swift */; };
+		2522EF652A646172005C62CA /* 📝RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF642A646172005C62CA /* 📝RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		2522EF342A645B8A005C62CA /* todo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2522EF372A645B8A005C62CA /* todo2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo2App.swift; sourceTree = "<group>"; };
-		2522EF392A645B8A005C62CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2522EF392A645B8A005C62CA /* 🏎️💨💨StartHereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🏎️💨💨StartHereView.swift"; sourceTree = "<group>"; };
 		2522EF3B2A645B8B005C62CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2522EF3D2A645B8B005C62CA /* todo2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = todo2.entitlements; sourceTree = "<group>"; };
 		2522EF3F2A645B8B005C62CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +47,8 @@
 		2522EF4F2A645B8C005C62CA /* todo2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = todo2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2522EF532A645B8C005C62CA /* todo2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo2UITests.swift; sourceTree = "<group>"; };
 		2522EF552A645B8C005C62CA /* todo2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2522EF622A645E82005C62CA /* 👮‍♂️LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👮‍♂️LoginView.swift"; sourceTree = "<group>"; };
+		2522EF642A646172005C62CA /* 📝RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📝RegisterView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				2522EF372A645B8A005C62CA /* todo2App.swift */,
-				2522EF392A645B8A005C62CA /* ContentView.swift */,
+				2522EF392A645B8A005C62CA /* 🏎️💨💨StartHereView.swift */,
+				2522EF622A645E82005C62CA /* 👮‍♂️LoginView.swift */,
+				2522EF642A646172005C62CA /* 📝RegisterView.swift */,
 				2522EF3B2A645B8B005C62CA /* Assets.xcassets */,
 				2522EF3D2A645B8B005C62CA /* todo2.entitlements */,
 				2522EF3E2A645B8B005C62CA /* Preview Content */,
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2522EF3A2A645B8A005C62CA /* ContentView.swift in Sources */,
+				2522EF632A645E82005C62CA /* 👮‍♂️LoginView.swift in Sources */,
+				2522EF652A646172005C62CA /* 📝RegisterView.swift in Sources */,
+				2522EF3A2A645B8A005C62CA /* 🏎️💨💨StartHereView.swift in Sources */,
 				2522EF382A645B8A005C62CA /* todo2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
