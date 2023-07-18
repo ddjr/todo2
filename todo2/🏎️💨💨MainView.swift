@@ -42,11 +42,27 @@ struct MainView: View {
     var body: some View {
         // 👮‍♂️ Try to auto sign in
         if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
-            HomeView()
+            SignedInView
         } else {
             LoginView()
         }
     
+    }
+}
+// -------------------------------
+// MARK: 🧩 BITS
+// -------------------------------
+
+@ViewBuilder var SignedInView: some View {
+    TabView {
+        HomeView()
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
+        ProfileView()
+            .tabItem {
+                Label("Profile", systemImage: "person.circle")
+            }
     }
 }
 
