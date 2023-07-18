@@ -16,6 +16,7 @@ struct TodoItemView: View {
             VStack {
                 Text(title)
                 Text("\(date)")
+
             }
             Spacer()
             Button() {

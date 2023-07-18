@@ -10,12 +10,14 @@ import FirebaseFirestore
 // -------------------------------
 // MARK: ⚙️ LOGIC
 // -------------------------------
-
-
+class HomeViewModel: ObservableObject {
+    @Published var showNewItemView = false
+}
 // -------------------------------
 // MARK: 👀 VIEW
 // -------------------------------
 struct HomeView: View {
+    @StateObject var viewModel = HomeViewModel()
     var body: some View {
         NavigationStack {
             VStack {
@@ -26,9 +28,12 @@ struct HomeView: View {
                 Divider()
             }
             .navigationTitle("Home")
+
+            // ➕ Plus button
             .toolbar() {
                 Button() {
                     // 👇 onClick
+                    viewModel.showNewItemView = true
                 } label: {
                     Image(systemName: "plus")
                         .foregroundColor(.blue)
@@ -36,6 +41,9 @@ struct HomeView: View {
                 }
             }
             Spacer()
+        }
+        .sheet(isPresented: $viewModel.showNewItemView) {
+            NewTodoView(isPresented: $viewModel.showNewItemView)
         }
     }
 }

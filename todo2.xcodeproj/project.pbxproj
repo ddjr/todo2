@@ -25,6 +25,7 @@
 		25260EBF2A66DA3600D3EB05 /* 🏡HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EBE2A66DA3600D3EB05 /* 🏡HomeView.swift */; };
 		25260EC12A66DAE700D3EB05 /* 👨‍💼ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EC02A66DAE700D3EB05 /* 👨‍💼ProfileView.swift */; };
 		25260EC32A66E6D200D3EB05 /* ✅TodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EC22A66E6D200D3EB05 /* ✅TodoItemView.swift */; };
+		25260EC52A6709C000D3EB05 /* 📝NewTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EC42A6709C000D3EB05 /* 📝NewTodoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		25260EBE2A66DA3600D3EB05 /* 🏡HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🏡HomeView.swift"; sourceTree = "<group>"; };
 		25260EC02A66DAE700D3EB05 /* 👨‍💼ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👨‍💼ProfileView.swift"; sourceTree = "<group>"; };
 		25260EC22A66E6D200D3EB05 /* ✅TodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "✅TodoItemView.swift"; sourceTree = "<group>"; };
+		25260EC42A6709C000D3EB05 /* 📝NewTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📝NewTodoView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				25260EBA2A65FA1300D3EB05 /* 🎩HeaderView.swift */,
 				25260EBE2A66DA3600D3EB05 /* 🏡HomeView.swift */,
 				25260EC22A66E6D200D3EB05 /* ✅TodoItemView.swift */,
+				25260EC42A6709C000D3EB05 /* 📝NewTodoView.swift */,
 				25260EC02A66DAE700D3EB05 /* 👨‍💼ProfileView.swift */,
 				2522EF3B2A645B8B005C62CA /* Assets.xcassets */,
 				2522EF3D2A645B8B005C62CA /* todo2.entitlements */,
@@ -306,6 +309,7 @@
 				25260EBB2A65FA1300D3EB05 /* 🎩HeaderView.swift in Sources */,
 				25260EBD2A66131B00D3EB05 /* 🫥Models&Extensions.swift in Sources */,
 				2522EF3A2A645B8A005C62CA /* 🏎️💨💨MainView.swift in Sources */,
+				25260EC52A6709C000D3EB05 /* 📝NewTodoView.swift in Sources */,
 				2522EF382A645B8A005C62CA /* todo2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

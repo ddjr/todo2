@@ -49,16 +49,19 @@ struct MainView: View {
     
     }
 }
+
 // -------------------------------
 // MARK: 🧩 BITS
 // -------------------------------
 
 @ViewBuilder var SignedInView: some View {
     TabView {
+        // 🏡 Home tab
         HomeView()
             .tabItem {
                 Label("Home", systemImage: "house")
             }
+        // 👨‍💼 Profile tab
         ProfileView()
             .tabItem {
                 Label("Profile", systemImage: "person.circle")
