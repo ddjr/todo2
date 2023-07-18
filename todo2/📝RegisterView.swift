@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import FirebaseAuth
 
 // -------------------------------
 // MARK: ⚙️ Logic
@@ -15,8 +16,47 @@ class RegisterViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var errorMessage: String = ""
     
     init() {}
+    
+    // -------------------------------
+    // 📝 Register user
+    func register() {
+        // 🧐 Try to validate all text fields
+        guard validateText() else { return }
+        // 🚀 Try to login to Firebase
+        Auth.auth().signIn(withEmail: email, password: password)
+    }
+    
+    // -------------------------------
+    // 🧐 Validate text fields
+    private func validateText() -> Bool {
+        // 🔁 Reset error message
+        errorMessage = ""
+        
+        // 🧐 Validate name text field
+        guard !name.trimmingCharacters(in: .whitespaces).isEmpty
+        else {
+            errorMessage = "Please fill in valid name"
+            return false
+        }
+        // 🧐 Validate email text field
+        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
+              email.contains("@"), email.contains(".")
+        else {
+            errorMessage = "Please fill in valid email"
+            return false
+        }
+        // 🧐 Validate password text field
+        guard !password.trimmingCharacters(in: .whitespaces).isEmpty
+        else {
+            errorMessage = "Please fill in valid password"
+            return false
+        }
+        // 💃 Everything checks out...
+        return true
+    }
 }
 // -------------------------------
 // MARK: 👀 View 👀
@@ -46,7 +86,7 @@ struct RegisterView: View {
                 SecureField("Password", text: $viewModel.password)
                     .textFieldStyle(DefaultTextFieldStyle())
                 Button() {
-                    // TODO: 📝register()
+                    viewModel.register()
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)

@@ -6,26 +6,58 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 // -------------------------------
 // MARK: ⚙️ Logic ⚙️
 // -------------------------------
 class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var errorMessage: String = ""
     
     init() {}
+    
+    // -------------------------------
+    // 👮‍♂️ Login user
+    func login() {
+        // 🧐 Try to validate text fields
+        guard validate() else { return }
+        // 🚀 Try to login to Firebase
+        Auth.auth().signIn(withEmail: email, password: password)
+    }
+    
+    // -------------------------------
+    // 🧐 Validate text fields
+    private func validate() -> Bool {
+        // 🔁 Reset error message
+        errorMessage = ""
+        
+        // 🧐 Try to validate email text field
+        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
+              email.contains("@"), email.contains(".")
+        else {
+            errorMessage = "Please fill in valid email"
+            return false
+        }
+        // 🧐 Try to validate password text field
+        guard !password.trimmingCharacters(in: .whitespaces).isEmpty
+        else {
+            errorMessage = "Please fill in valid password"
+            return false
+        }
+        // 💃 Everything checks out...
+        return true
+    }
 }
 // -------------------------------
 // MARK: 👀 View 👀
 // -------------------------------
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
-    
     var body: some View {
-        
         VStack {
             // -------------------------------
-            // 🎩LoginHeader
+            // 🎩 Login Header
             HeaderView(
                 title: "Todo List",
                 subtitle: "Get Things Done",
@@ -33,8 +65,14 @@ struct LoginView: View {
                 backgroundColor: .pink
             )
             // -------------------------------
-            // 🥷LoginForm
+            // 🥷 Login Form
             Form {
+                // ⛔️ Error message
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(.red)
+                }
+                
                 TextField("Email Address", text: $viewModel.email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocorrectionDisabled()
@@ -42,7 +80,7 @@ struct LoginView: View {
                 SecureField("Password", text: $viewModel.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Button() {
-                    // TODO: Add onClick
+                    viewModel.login()
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10.0)
@@ -55,7 +93,7 @@ struct LoginView: View {
                 }
             }
             // -------------------------------
-            // 👨‍💻CreateAccountLink
+            // 👨‍💻 Create Account Link
             VStack {
                 Text("New around here?")
                 NavigationLink("Create An Account",
@@ -70,34 +108,7 @@ struct LoginView: View {
 // -------------------------------
 // MARK: 🧩 Bits 🧩
 // -------------------------------
-//@ViewBuilder private var 🎩LoginHeader: some View {
-//    ZStack {
-//        RoundedRectangle(cornerRadius: 0)
-//            .foregroundColor(.pink)
-//            .rotationEffect(Angle(degrees: 15))
-//        VStack {
-//            Text("Todo List")
-//                .foregroundColor(.white)
-//                .font(.title)
-//            Text("Get Things Done")
-//                .foregroundColor(.white)
-//                .font(.title2)
-//        }
-//    }
-//    .frame(width: 100, height: 300)
-//}
-//
-//@ViewBuilder private var 👨‍💻CreateAccountLink: some View {
-//    VStack {
-//        Text("New around here?")
-//        NavigationLink("Create An Account",
-//            destination: RegisterView())
-//        .foregroundColor(.blue)
-//    }
-//    .padding(.bottom, 50)
-//    Spacer()
-//
-//}
+
 
 // -------------------------------
 // MARK: 🎥 Preview 🎥
