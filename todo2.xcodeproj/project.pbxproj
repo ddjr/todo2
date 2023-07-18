@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2522EF382A645B8A005C62CA /* todo2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF372A645B8A005C62CA /* todo2App.swift */; };
-		2522EF3A2A645B8A005C62CA /* 🏎️💨💨StartHereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF392A645B8A005C62CA /* 🏎️💨💨StartHereView.swift */; };
+		2522EF3A2A645B8A005C62CA /* 🏎️💨💨MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF392A645B8A005C62CA /* 🏎️💨💨MainView.swift */; };
 		2522EF3C2A645B8B005C62CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2522EF3B2A645B8B005C62CA /* Assets.xcassets */; };
 		2522EF402A645B8B005C62CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2522EF3F2A645B8B005C62CA /* Preview Assets.xcassets */; };
 		2522EF4A2A645B8C005C62CA /* todo2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522EF492A645B8C005C62CA /* todo2Tests.swift */; };
@@ -21,7 +21,10 @@
 		2522EF6C2A64E115005C62CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2522EF6B2A64E115005C62CA /* FirebaseFirestoreSwift */; };
 		2522EF6E2A64E1CC005C62CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */; };
 		25260EBB2A65FA1300D3EB05 /* 🎩HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EBA2A65FA1300D3EB05 /* 🎩HeaderView.swift */; };
-		25260EBD2A66131B00D3EB05 /* 🫥Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EBC2A66131B00D3EB05 /* 🫥Models.swift */; };
+		25260EBD2A66131B00D3EB05 /* 🫥Models&Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EBC2A66131B00D3EB05 /* 🫥Models&Extensions.swift */; };
+		25260EBF2A66DA3600D3EB05 /* 🏡HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EBE2A66DA3600D3EB05 /* 🏡HomeView.swift */; };
+		25260EC12A66DAE700D3EB05 /* 👨‍💼ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EC02A66DAE700D3EB05 /* 👨‍💼ProfileView.swift */; };
+		25260EC32A66E6D200D3EB05 /* ✅TodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260EC22A66E6D200D3EB05 /* ✅TodoItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +47,7 @@
 /* Begin PBXFileReference section */
 		2522EF342A645B8A005C62CA /* todo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2522EF372A645B8A005C62CA /* todo2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo2App.swift; sourceTree = "<group>"; };
-		2522EF392A645B8A005C62CA /* 🏎️💨💨StartHereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🏎️💨💨StartHereView.swift"; sourceTree = "<group>"; };
+		2522EF392A645B8A005C62CA /* 🏎️💨💨MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🏎️💨💨MainView.swift"; sourceTree = "<group>"; };
 		2522EF3B2A645B8B005C62CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2522EF3D2A645B8B005C62CA /* todo2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = todo2.entitlements; sourceTree = "<group>"; };
 		2522EF3F2A645B8B005C62CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -57,7 +60,10 @@
 		2522EF642A646172005C62CA /* 📝RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "📝RegisterView.swift"; sourceTree = "<group>"; };
 		2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25260EBA2A65FA1300D3EB05 /* 🎩HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎩HeaderView.swift"; sourceTree = "<group>"; };
-		25260EBC2A66131B00D3EB05 /* 🫥Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🫥Models.swift"; sourceTree = "<group>"; };
+		25260EBC2A66131B00D3EB05 /* 🫥Models&Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🫥Models&Extensions.swift"; sourceTree = "<group>"; };
+		25260EBE2A66DA3600D3EB05 /* 🏡HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🏡HomeView.swift"; sourceTree = "<group>"; };
+		25260EC02A66DAE700D3EB05 /* 👨‍💼ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👨‍💼ProfileView.swift"; sourceTree = "<group>"; };
+		25260EC22A66E6D200D3EB05 /* ✅TodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "✅TodoItemView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +118,14 @@
 			isa = PBXGroup;
 			children = (
 				2522EF372A645B8A005C62CA /* todo2App.swift */,
-				2522EF392A645B8A005C62CA /* 🏎️💨💨StartHereView.swift */,
+				25260EBC2A66131B00D3EB05 /* 🫥Models&Extensions.swift */,
+				2522EF392A645B8A005C62CA /* 🏎️💨💨MainView.swift */,
 				2522EF622A645E82005C62CA /* 👮‍♂️LoginView.swift */,
-				25260EBA2A65FA1300D3EB05 /* 🎩HeaderView.swift */,
 				2522EF642A646172005C62CA /* 📝RegisterView.swift */,
-				25260EBC2A66131B00D3EB05 /* 🫥Models.swift */,
+				25260EBA2A65FA1300D3EB05 /* 🎩HeaderView.swift */,
+				25260EBE2A66DA3600D3EB05 /* 🏡HomeView.swift */,
+				25260EC22A66E6D200D3EB05 /* ✅TodoItemView.swift */,
+				25260EC02A66DAE700D3EB05 /* 👨‍💼ProfileView.swift */,
 				2522EF3B2A645B8B005C62CA /* Assets.xcassets */,
 				2522EF3D2A645B8B005C62CA /* todo2.entitlements */,
 				2522EF6D2A64E1CB005C62CA /* GoogleService-Info.plist */,
@@ -289,11 +298,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25260EC12A66DAE700D3EB05 /* 👨‍💼ProfileView.swift in Sources */,
+				25260EBF2A66DA3600D3EB05 /* 🏡HomeView.swift in Sources */,
 				2522EF632A645E82005C62CA /* 👮‍♂️LoginView.swift in Sources */,
+				25260EC32A66E6D200D3EB05 /* ✅TodoItemView.swift in Sources */,
 				2522EF652A646172005C62CA /* 📝RegisterView.swift in Sources */,
 				25260EBB2A65FA1300D3EB05 /* 🎩HeaderView.swift in Sources */,
-				25260EBD2A66131B00D3EB05 /* 🫥Models.swift in Sources */,
-				2522EF3A2A645B8A005C62CA /* 🏎️💨💨StartHereView.swift in Sources */,
+				25260EBD2A66131B00D3EB05 /* 🫥Models&Extensions.swift in Sources */,
+				2522EF3A2A645B8A005C62CA /* 🏎️💨💨MainView.swift in Sources */,
 				2522EF382A645B8A005C62CA /* todo2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

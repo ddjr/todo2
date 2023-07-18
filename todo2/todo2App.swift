@@ -15,7 +15,7 @@ struct todo2App: App {
     }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

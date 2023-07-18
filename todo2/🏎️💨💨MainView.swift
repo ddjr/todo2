@@ -1,5 +1,5 @@
 //
-//  🏎️💨💨StartHereView.swift
+//  🏎️💨💨MainView.swift
 //  todo2
 //
 //  Created by David Daly on 7/16/23.
@@ -11,49 +11,50 @@ import Firebase
 import Foundation
 
 // -------------------------------
-// MARK: ⚙️ Logic ⚙️
+// MARK: ⚙️ LOGIC
 // -------------------------------
 class MainViewModel: ObservableObject {
     @Published var currentUserId: String = ""
     private var handler: AuthStateDidChangeListenerHandle?
     
+    // -------------------------------
+    // 🏎️💨 Start Model
     init() {
-        let handler = Auth.auth().addStateDidChangeListener({ [weak self] _, user in
+        self.handler = Auth.auth().addStateDidChangeListener({ [weak self] _, user in
             DispatchQueue.main.async {
                 self?.currentUserId = user?.uid ?? ""
             }
         })
-        print(handler)
     }
     
+    // -------------------------------
+    // 🧐 Verify the user is signed in
     public var isSignedIn: Bool {
         return Auth.auth().currentUser != nil
     }
 }
+
 // -------------------------------
-// MARK: 👀 View 👀
+// MARK: 👀 VIEW
 // -------------------------------
-struct ContentView: View {
+struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     var body: some View {
-        NavigationView {
+        // 👮‍♂️ Try to auto sign in
+        if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
+            HomeView()
+        } else {
             LoginView()
         }
+    
     }
-}
-// -------------------------------
-// MARK: 🧩 Bits 🧩
-// -------------------------------
-@ViewBuilder
-var SignedInView: some View {
-    Text("Hello world")
 }
 
 // -------------------------------
-// MARK: 🎥 Preview 🎥
+// MARK: 🎥 PREVIEW
 // -------------------------------
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }

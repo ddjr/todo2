@@ -8,9 +8,10 @@
 import SwiftUI
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 // -------------------------------
-// MARK: ⚙️ Logic
+// MARK: ⚙️ LOGIC
 // -------------------------------
 class RegisterViewModel: ObservableObject {
     @Published var name: String = ""
@@ -34,10 +35,21 @@ class RegisterViewModel: ObservableObject {
             self?.addUserToDatabase(userId: userId)
         }
     }
+
     // -------------------------------
     // 🚀 Add user to the Firebase database
     private func addUserToDatabase(userId: String) {
-        
+        // 🐣 Create new user
+        let newUser = User(id: userId,
+                           name: name,
+                           email: email,
+                           joined: Date().timeIntervalSince1970)
+        // 🐣 Create a connection to Firebase
+        let firebaseDatebase = Firestore.firestore()
+        // 🚀 Add user to Firebase
+        firebaseDatebase.collection("users")
+            .document(userId)
+            .setData(newUser.asDictionary())
     }
     
     // -------------------------------
@@ -70,8 +82,9 @@ class RegisterViewModel: ObservableObject {
         return true
     }
 }
+
 // -------------------------------
-// MARK: 👀 View 👀
+// MARK: 👀 VIEW
 // -------------------------------
 struct RegisterView: View {
     @StateObject var viewModel = RegisterViewModel()
@@ -114,7 +127,7 @@ struct RegisterView: View {
 }
 
 // -------------------------------
-// MARK: 🎥 Preview 🎥
+// MARK: 🎥 PREVIEW
 // -------------------------------
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {

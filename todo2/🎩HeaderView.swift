@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+
 // -------------------------------
-// MARK: 👀 View 👀
+// MARK: 👀 VIEW
 // -------------------------------
 struct HeaderView: View {
     let title: String
@@ -35,7 +36,7 @@ struct HeaderView: View {
 }
 
 // -------------------------------
-// MARK: 🎥 Preview 🎥
+// MARK: 🎥 PREVIEW
 // -------------------------------
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {

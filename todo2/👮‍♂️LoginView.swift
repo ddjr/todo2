@@ -7,8 +7,9 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 // -------------------------------
-// MARK: ⚙️ Logic ⚙️
+// MARK: ⚙️ LOGIC
 // -------------------------------
 class LoginViewModel: ObservableObject {
     @Published var email: String = ""
@@ -28,6 +29,9 @@ class LoginViewModel: ObservableObject {
     
     // -------------------------------
     // 🧐 Validate text fields
+    // MARK: ‼️ CHALLENGE #1 🟡
+    // Level 2 Difficulty 🟡
+    // TODO: add red border to invaild email and passwords.
     private func validate() -> Bool {
         // 🔁 Reset error message
         errorMessage = ""
@@ -39,6 +43,7 @@ class LoginViewModel: ObservableObject {
             errorMessage = "Please fill in valid email"
             return false
         }
+
         // 🧐 Try to validate password text field
         guard !password.trimmingCharacters(in: .whitespaces).isEmpty,
               password.count >= 6
@@ -46,73 +51,74 @@ class LoginViewModel: ObservableObject {
             errorMessage = "Please fill in valid password"
             return false
         }
+
         // 💃 Everything checks out...
         return true
     }
 }
+
 // -------------------------------
-// MARK: 👀 View 👀
+// MARK: 👀 VIEW
 // -------------------------------
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     var body: some View {
-        VStack {
-            // -------------------------------
-            // 🎩 Login Header
-            HeaderView(
-                title: "Todo List",
-                subtitle: "Get Things Done",
-                angle: 15.0,
-                backgroundColor: .pink
-            )
-            // -------------------------------
-            // 🥷 Login Form
-            Form {
-                // ⛔️ Error message
-                if !viewModel.errorMessage.isEmpty {
-                    Text(viewModel.errorMessage)
-                        .foregroundColor(.red)
-                }
+        NavigationView {
+            VStack {
+                // -------------------------------
+                // 🎩 Login Header
+                HeaderView(
+                    title: "Todo List",
+                    subtitle: "Get Things Done",
+                    angle: 15.0,
+                    backgroundColor: .pink
+                )
                 
-                TextField("Email Address", text: $viewModel.email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocorrectionDisabled()
-                    .autocorrectionDisabled()
-                SecureField("Password", text: $viewModel.password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button() {
-                    viewModel.login()
-                } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10.0)
-                            .foregroundColor(.blue)
-                        
-                        Text("Login")
-                            .foregroundColor(.white)
-                            .bold()
+                // -------------------------------
+                // 🥷 Login Form
+                Form {
+                    // ⛔️ Error message
+                    if !viewModel.errorMessage.isEmpty {
+                        Text(viewModel.errorMessage)
+                            .foregroundColor(.red)
+                    }
+                    
+                    TextField("Email Address", text: $viewModel.email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocorrectionDisabled()
+                        .autocorrectionDisabled()
+                    SecureField("Password", text: $viewModel.password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Button() {
+                        viewModel.login()
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10.0)
+                                .foregroundColor(.blue)
+                            
+                            Text("Login")
+                                .foregroundColor(.white)
+                                .bold()
+                        }
                     }
                 }
+                
+                // -------------------------------
+                // 👨‍💻 Create Account Link
+                VStack {
+                    Text("New around here?")
+                    NavigationLink("Create An Account", destination: RegisterView())
+                        .foregroundColor(.blue)
+                }
+                .padding(.bottom, 50)
+                Spacer()
             }
-            // -------------------------------
-            // 👨‍💻 Create Account Link
-            VStack {
-                Text("New around here?")
-                NavigationLink("Create An Account",
-                               destination: RegisterView())
-                .foregroundColor(.blue)
-            }
-            .padding(.bottom, 50)
-            Spacer()
         }
     }
 }
-// -------------------------------
-// MARK: 🧩 Bits 🧩
-// -------------------------------
-
 
 // -------------------------------
-// MARK: 🎥 Preview 🎥
+// MARK: 🎥 PREVIEW
 // -------------------------------
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
