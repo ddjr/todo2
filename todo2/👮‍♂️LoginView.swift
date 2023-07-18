@@ -40,7 +40,8 @@ class LoginViewModel: ObservableObject {
             return false
         }
         // 🧐 Try to validate password text field
-        guard !password.trimmingCharacters(in: .whitespaces).isEmpty
+        guard !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              password.count >= 6
         else {
             errorMessage = "Please fill in valid password"
             return false

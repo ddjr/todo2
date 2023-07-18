@@ -23,10 +23,21 @@ class RegisterViewModel: ObservableObject {
     // -------------------------------
     // 📝 Register user
     func register() {
-        // 🧐 Try to validate all text fields
+        // 🧐 Validate all text fields
         guard validateText() else { return }
-        // 🚀 Try to login to Firebase
-        Auth.auth().signIn(withEmail: email, password: password)
+        // 🚀 Register user on Firebase
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
+            // 🧐 Validate the user was created
+            guard let userId = result?.user.uid
+            else { return }
+            // 🚀 Add user to Firebase
+            self?.addUserToDatabase(userId: userId)
+        }
+    }
+    // -------------------------------
+    // 🚀 Add user to the Firebase database
+    private func addUserToDatabase(userId: String) {
+        
     }
     
     // -------------------------------
@@ -49,7 +60,8 @@ class RegisterViewModel: ObservableObject {
             return false
         }
         // 🧐 Validate password text field
-        guard !password.trimmingCharacters(in: .whitespaces).isEmpty
+        guard !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              password.count >= 6
         else {
             errorMessage = "Please fill in valid password"
             return false
