@@ -6,26 +6,32 @@
 //
 
 import SwiftUI
-import FirebaseFirestore
-// -------------------------------
-// MARK: ⚙️ LOGIC
-// -------------------------------
-class HomeViewModel: ObservableObject {
-    @Published var showNewItemView = false
-}
+import FirebaseFirestoreSwift
+
 // -------------------------------
 // MARK: 👀 VIEW
 // -------------------------------
 struct HomeView: View {
-    @StateObject var viewModel = HomeViewModel()
+    @State var showNewItemView = false
+    private let userId: String
+    @FirestoreQuery var todoList: [Todo]
+    
+    init(userId: String) {
+        // 🔥 Firebase collectionPath: users/<userId>/todos
+        self._todoList = FirestoreQuery(collectionPath: "users/\(userId)/todos")
+        self.userId = userId
+    }
+    
+    
+    
+    
     var body: some View {
         NavigationStack {
             VStack {
                 // 🧾 Todo list
-                TodoItemView(title: "Get Eggs", date: Date().timeIntervalSince1970)
-                Divider()
-                TodoItemView(title: "Get Eggs", date: Date().timeIntervalSince1970)
-                Divider()
+                List(todoList) { todo in
+                    TodoItemView(todo: todo, userId: userId)
+                }
             }
             .navigationTitle("Home")
 
@@ -33,7 +39,7 @@ struct HomeView: View {
             .toolbar() {
                 Button() {
                     // 👇 onClick
-                    viewModel.showNewItemView = true
+                    showNewItemView = true
                 } label: {
                     Image(systemName: "plus")
                         .foregroundColor(.blue)
@@ -42,8 +48,8 @@ struct HomeView: View {
             }
             Spacer()
         }
-        .sheet(isPresented: $viewModel.showNewItemView) {
-            NewTodoView(isPresented: $viewModel.showNewItemView)
+        .sheet(isPresented: $showNewItemView) {
+            NewTodoView(isPresented: $showNewItemView)
         }
     }
 }
@@ -53,6 +59,6 @@ struct HomeView: View {
 // -------------------------------
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(userId: "mosq9HOA1AgKoxWu0dzQ34krPO93")
     }
 }

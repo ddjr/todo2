@@ -6,31 +6,87 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+
 
 struct TodoItemView: View {
-    let title: String
-    let date: TimeInterval
+    // -------------------------------
+    // MARK: ⚙️ Logic
+    // -------------------------------
+    @State var todo: Todo
+    let userId: String
+    let formattedDueDate: String
     
+    // -------------------------------
+    // 🐣 Initalize values. Format date
+    init(todo: Todo, userId: String) {
+        self.todo = todo
+        self.userId = userId
+        self.formattedDueDate = Date(timeIntervalSince1970: todo.dueDate).formatted(date: .abbreviated, time: .shortened)
+
+    }
+
+    // -------------------------------
+    // 😵 Delete todo from Firebase
+    func deleteTodo() {
+        let FirebaseDatabase = Firestore.firestore()
+        FirebaseDatabase.collection("users")
+            .document(userId)
+            .collection("todos")
+            .document(todo.id)
+            .delete()
+    }
+    
+    // -------------------------------
+    // MARK: 👀 VIEW
+    // -------------------------------
     var body: some View {
         HStack {
-            VStack {
-                Text(title)
-                Text("\(date)")
-
+            VStack(alignment: .leading) {
+                Text(todo.title)
+                    .bold()
+                    .font(.title2)
+                Text(formattedDueDate)
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
             }
             Spacer()
             Button() {
                 // 👇 onClick
+                todo.isDone.toggle()
             } label: {
-                Text("Add")
+                Image(systemName: todo.isDone ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(todo.isDone ? .green : .blue)
             }
         }
         .padding()
+        // 🔴 Swipe to delete
+        .swipeActions {
+            Button {
+                // 👆 onSwipe
+                deleteTodo()
+            } label: {
+                Text("Delete")
+            }
+            .tint(.red)
+        }
     }
 }
 
+// -------------------------------
+// MARK: 🎥 PREVIEW
+// -------------------------------
 struct TodoItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoItemView(title: "Get Eggs", date: Date().timeIntervalSince1970)
+        TodoItemView(
+            todo: Todo(
+                id: "asdfa",
+                title: "get eggs",
+                dueDate: Date().timeIntervalSince1970,
+                CreatedDate: Date().timeIntervalSince1970,
+                isDone: false
+            ),
+            userId: "mosq9HOA1AgKoxWu0dzQ34krPO93"
+        )
     }
 }

@@ -14,7 +14,7 @@ import Foundation
 // MARK: ⚙️ LOGIC
 // -------------------------------
 class MainViewModel: ObservableObject {
-    @Published var currentUserId: String = ""
+    @Published var userId: String = ""
     private var handler: AuthStateDidChangeListenerHandle?
     
     // -------------------------------
@@ -22,7 +22,7 @@ class MainViewModel: ObservableObject {
     init() {
         self.handler = Auth.auth().addStateDidChangeListener({ [weak self] _, user in
             DispatchQueue.main.async {
-                self?.currentUserId = user?.uid ?? ""
+                self?.userId = user?.uid ?? ""
             }
         })
     }
@@ -41,31 +41,27 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     var body: some View {
         // 👮‍♂️ Try to auto sign in
-        if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
+        if viewModel.isSignedIn, !viewModel.userId.isEmpty {
             SignedInView
         } else {
             LoginView()
         }
-    
+        
     }
-}
 
-// -------------------------------
-// MARK: 🧩 BITS
-// -------------------------------
-
-@ViewBuilder var SignedInView: some View {
-    TabView {
-        // 🏡 Home tab
-        HomeView()
-            .tabItem {
-                Label("Home", systemImage: "house")
-            }
-        // 👨‍💼 Profile tab
-        ProfileView()
-            .tabItem {
-                Label("Profile", systemImage: "person.circle")
-            }
+    @ViewBuilder var SignedInView: some View {
+        TabView {
+            // 🏡 Home tab
+            HomeView(userId: viewModel.userId)
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            // 👨‍💼 Profile tab
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person.circle")
+                }
+        }
     }
 }
 

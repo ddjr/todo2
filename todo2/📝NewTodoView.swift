@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
+import Foundation
+
 // -------------------------------
 // MARK: ⚙️ LOGIC
 // -------------------------------
@@ -20,6 +24,32 @@ class NewTodoViewModel: ObservableObject {
     // -------------------------------
     // 🛟 Save new todo item
     func save() {
+        // 🕵️‍♂️ Make sure todo item is valid
+        guard formFieldsAreValidate()
+        else { return }
+        
+        // 🚀 Get the current userId
+        guard let userId = Auth.auth().currentUser?.uid
+        else { return }
+        
+        // 🐣 Create a todo item
+        let todoId = UUID().uuidString
+        let newTodo = Todo(
+            id: todoId,
+            title: title,
+            dueDate: dueDate.timeIntervalSince1970,
+            CreatedDate: Date().timeIntervalSince1970,
+            isDone: false
+        )
+        
+        // 🚀 Save todo to Firebase
+        let firebaseDatebase = Firestore.firestore()
+        firebaseDatebase.collection("users")
+            .document(userId)
+            .collection("todos")
+            .document(todoId)
+            .setData(newTodo.asDictionary())
+        
     }
 
     // -------------------------------
