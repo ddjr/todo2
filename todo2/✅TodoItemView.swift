@@ -38,6 +38,21 @@ struct TodoItemView: View {
     }
     
     // -------------------------------
+    // 🔁 Toggle todo item status
+    func toggleTodoStatus() {
+        // 🔁 Toggle todo status locally
+        todo.isDone.toggle()
+        
+        // 🚀 Update todo status on Firebase
+        let FirebaseDatabase = Firestore.firestore()
+        FirebaseDatabase.collection("users")
+            .document(userId)
+            .collection("todos")
+            .document(todo.id)
+            .setData(todo.asDictionary())
+    }
+    
+    // -------------------------------
     // MARK: 👀 VIEW
     // -------------------------------
     var body: some View {
@@ -53,7 +68,7 @@ struct TodoItemView: View {
             Spacer()
             Button() {
                 // 👇 onClick
-                todo.isDone.toggle()
+                toggleTodoStatus()
             } label: {
                 Image(systemName: todo.isDone ? "checkmark.circle.fill" : "circle")
                     .foregroundColor(todo.isDone ? .green : .blue)

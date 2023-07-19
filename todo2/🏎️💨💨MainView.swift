@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuth
 import Firebase
 import Foundation
+import FirebaseFirestoreSwift
 
 // -------------------------------
 // MARK: ⚙️ LOGIC
@@ -16,15 +17,17 @@ import Foundation
 class MainViewModel: ObservableObject {
     @Published var userId: String = ""
     private var handler: AuthStateDidChangeListenerHandle?
+//    @Published var user: User
     
     // -------------------------------
-    // 🏎️💨 Start Model
+    // 🏎️💨 try to get userId
     init() {
         self.handler = Auth.auth().addStateDidChangeListener({ [weak self] _, user in
             DispatchQueue.main.async {
                 self?.userId = user?.uid ?? ""
             }
         })
+//        self._user = FirestoreQuery(collectionPath: "users/\(userId)")
     }
     
     // -------------------------------

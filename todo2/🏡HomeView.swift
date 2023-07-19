@@ -8,10 +8,11 @@
 import SwiftUI
 import FirebaseFirestoreSwift
 
-// -------------------------------
-// MARK: 👀 VIEW
-// -------------------------------
+
 struct HomeView: View {
+    // -------------------------------
+    // MARK: ⚙️ LOGIC
+    // -------------------------------
     @State var showNewItemView = false
     private let userId: String
     @FirestoreQuery var todoList: [Todo]
@@ -22,9 +23,9 @@ struct HomeView: View {
         self.userId = userId
     }
     
-    
-    
-    
+    // -------------------------------
+    // MARK: 👀 VIEW
+    // -------------------------------
     var body: some View {
         NavigationStack {
             VStack {
